@@ -18,7 +18,7 @@ LUEGO EDIDTA EL ONCREATE( se necesita crear la bindig class, y luego modificar e
 */
 
 class Adapter: RecyclerView.Adapter<Adapter.ViewHolder>() {
-    val pokemones= mutableListOf<Pokemon>()
+    var pokemones= mutableListOf<Pokemon>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemLayoutBinding.inflate(LayoutInflater.from(parent.context),parent,false)
@@ -33,6 +33,11 @@ class Adapter: RecyclerView.Adapter<Adapter.ViewHolder>() {
         val item = pokemones[position]
         holder.bind(item)
     }
+
+    fun setData(pokedex: List<Pokemon>) {
+    this.pokemones = pokedex.toMutableList()
+    }
+
     class ViewHolder(val binding: ItemLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(pokemon: Pokemon) {
             binding.nombre.text = pokemon.nombre

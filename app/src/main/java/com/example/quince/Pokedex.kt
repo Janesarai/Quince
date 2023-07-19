@@ -1,4 +1,4 @@
-package com.example.kotlinexamples
+package com.example.quince
 
 import com.example.quince.Pokemon
 
